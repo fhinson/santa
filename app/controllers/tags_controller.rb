@@ -10,6 +10,6 @@ class TagController < ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:name, :age, :gender, :wish, :alternative_with, :status, :zone, :code)
+    params.require(:tag).permit(:name, :age, :gender, :wish, :alternative_wish, :status, :zone, :code)
   end
 end
