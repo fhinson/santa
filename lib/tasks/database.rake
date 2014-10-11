@@ -7,7 +7,7 @@ namespace :database do
       name = line[2] == ' ' ? line[1] : line[1] + line[2]
       age = line[5].split[0].to_i
       t = Tag.find_by_name_and_age(name, age) || Tag.new
-      t.name = name 
+      t.name = line[2] == ' ' ? line[1] : line[1] + ' ' + line[2] 
       t.group = line[3] if line[3] != ' '
       t.gender = line[4]
       t.age = age
