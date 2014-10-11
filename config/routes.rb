@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :drivers do
     collection do 
-      get :notify_drivers
+      get :notify
     end
   end
   

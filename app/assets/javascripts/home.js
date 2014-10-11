@@ -18,9 +18,9 @@ function locErr(err){
 
 $(".notify").click(function() {
   $.ajax({
-    url: '/drivers/notify_drivers',
+    url: '/drivers/notify',
     data: {'location': ($("#loctext").val())},
-    type:   'POST',
+    type:   'GET',
     success: function (html) {
       console.log(":)");
     },
