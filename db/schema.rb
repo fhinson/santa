@@ -11,9 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141011195012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "age"
+    t.string  "gender"
+    t.text    "wish"
+    t.text    "alternate_wish"
+    t.string  "status"
+    t.integer "zone"
+    t.string  "code"
+  end
 
 end
