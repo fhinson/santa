@@ -6,7 +6,7 @@
     %h3.recipient
       = @tag.name + "'s Gift"
     %h5.wish
-      %span.quoter &ldquo;
+      %span.quoter{:style => (@tag.wish.nil? ? "display:none" : "")} &ldquo;
       = @tag.wish
     #qrcode
 
