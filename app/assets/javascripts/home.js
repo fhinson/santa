@@ -2,29 +2,29 @@ $(document).ready(getLocation);
 
 function getLocation(){
 	if(navigator.geolocation){
-		navigator.geolocation.watchPosition(function(pos){
-			$("#loctext").append(pos.coords.latitude + "<br>" + pos.coords.longitude);
-		});
+		navigator.geolocation.watchPosition(locSuccess, locErr, options);
 	}
 	else {
-		$("#loctext").append("Geolocation is not supported.");
+		$("#locerror").append("Geolocation is not supported.");
 	}
 }
 
-function showPos(pos){
-	$("#loctext").append(pos.coords.latitude + "<br>" + pos.coords.longitude);
+function locSuccess(pos){
+	$("#loctext").(pos.coords.latitude + "," + pos.coords.longitude);
+}
+function locErr(err){
+  $("#locerror").append()
 }
 
-// $(".notify").click(function() {
-//   $.ajax({
-//     url: '/,
-//     data: {'explanation': ($(".bug_explanation").val())},
-//     type:   'GET',
-//     success: function (html) {
-//       $('#report_tactic').modal('hide');
-//       location.reload();
-//     },
-//     error: function (response) {
-//     }
-//   });
-// });
+$(".notify").click(function() {
+  $.ajax({
+    url: '/drivers/notify_drivers',
+    data: {'location': ($("#loctext").val())},
+    type:   'POST',
+    success: function (html) {
+      console.log(":)");
+    },
+    error: function (response) {
+    }
+  });
+});
