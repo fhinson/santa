@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  root 'statics#home'
+  devise_for :volunteers
+  devise_for :drivers
+  root to: 'statics#home'
   resources :tags
 
-  resources
+  resources :drivers do
+    collection do 
+      get :notify_drivers
+    end
+  end
+  
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
