@@ -5,6 +5,7 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( qr.js )
 Rails.application.config.assets.precompile += %w( qrcode.min.js )
+Rails.application.config.assets.precompile += %w( donor.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

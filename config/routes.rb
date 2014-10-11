@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   root to: 'statics#home'
   resources :tags
 
+  get '/donor' => 'donors#show'
+  get 'driver' => 'drivers#show'
+
   resources :drivers do
-    collection do 
+    collection do
       get :notify
     end
   end
-  
-  
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
