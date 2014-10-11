@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tags#index'
+  root 'home#show'
   resources :tags
 
   # The priority is based upon order of creation: first created -> highest priority.
