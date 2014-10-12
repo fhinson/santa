@@ -10,6 +10,14 @@
       = @tag.wish
     #qrcode
 
+- if !current_volunteer
+  %button.notify Request a Driver
+
+  %p#loctext
+- else 
+
+= javascript_include_tag("donor")
+
 = javascript_tag do
   id = "#{j @tag.id.to_s}";
 = javascript_include_tag("qrcode.min")

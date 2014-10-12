@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   devise_for :volunteers
   devise_for :drivers   
 
-  resources :donors
-
   resources :drivers do
     collection do
       get :notify
