@@ -10,6 +10,7 @@
       %li
         = link_to('Logout', destroy_driver_session_path, :method => :delete)
     %h3.text-muted Santa
+
     .centrax
       - if @tags.empty?
         %h2 No Delivery Requests

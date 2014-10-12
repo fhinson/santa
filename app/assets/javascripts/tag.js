@@ -5,6 +5,7 @@ var accept = function () {
     data: {id: id},
     success: function () {
       $('#job').replaceWith("Accepted");
+      parent.location='comgooglemaps://?daddr=37.759748,-100.427135';
     }
   });
 }
