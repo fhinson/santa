@@ -4,12 +4,14 @@ class DriversController < ApplicationController
 		dl = params[:location]
 		numbers = []
 		Driver.all.each do |d|
-			loc = parse_location(d.location)
-			donorLoc = parse_location(dl)
-			miles = haversine_distance(loc[0], loc[1], donorLoc[0], donorLoc[1])
-			if (miles < 5)
-				numbers << d.phone
-				puts d.phone
+			if d.location?
+				loc = parse_location(d.location)
+				donorLoc = parse_location(dl)
+				miles = haversine_distance(loc[0], loc[1], donorLoc[0], donorLoc[1])
+				if (miles < 5)
+					numbers << d.phone
+					puts d.phone
+				end
 			end
 		end
 
