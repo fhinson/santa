@@ -1,4 +1,14 @@
-There are no jobs right now. We'll send you a notification when there are!
+- if @tags.empty? 
+  There are no presents to be delivered right now. We'll send you a notification when there are!
 
-%a
+
   = link_to('Logout', destroy_driver_session_path, :method => :delete)
+- else
+  %div#job
+    We've found a job! 
+    .btn.btn-primary{onclick: "accept()"} Accept?
+
+- if !@tags.empty?
+  = javascript_tag do
+    id = "#{j @tags[0].id.to_s}";
+= javascript_include_tag "tag"

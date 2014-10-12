@@ -2,7 +2,27 @@ class DriversController < ApplicationController
   before_action :authenticate_driver!, only: :index
 
 	def index
+		if current_driver
+			@tags = Array.new
+			Tag.find_each do |t|
+				if t.status == "Requested"
+					l1 = parse_location(t.location)
+					l2 = parse_location(current_driver.location)
+					if haversine_distance(l1[0], l1[1], l2[0], l2[1]) < 5
+						@tags << t
+					end
+				end
+			end	
+		end
+	end
 
+	def accept
+		tag = Tag.find(params[:id])
+		tag.status = "Accepted"
+		tag.driver = current_driver
+		tag.save
+
+		render nothing: true
 	end
 
 	def notify
