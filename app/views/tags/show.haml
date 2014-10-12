@@ -28,14 +28,9 @@
             .btn.btn-primary.notify{:style => "width:100%;"} Request a Driver
       %p#loctext{:style => "display:none"}
     - else 
-      .small-contain{:style => "width:500px; margin:50px auto; display:block"}
-        .row
-          .col-md-6
-            Zone: 
-            = @tag.zone
-     
-          .col-md-6
-            .btn.btn-primary#deliver{:style => "width:100%;"} Check as Delivered
+      .small-contain{:style => "width:500px; margin:50px auto; display:block; text-align:center"}
+        %p Zone: #{@tag.zone}
+        .btn.btn-primary.deliver{:style => "width:80%;"} Check as Delivered
   
   .load
     %h2.loadtext Searching for drivers...
