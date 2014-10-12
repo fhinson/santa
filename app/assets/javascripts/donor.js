@@ -28,9 +28,15 @@ $(".notify").click(function() {
     data: {'location': ($("#loctext").text())},
     type:   'GET',
     success: function (html) {
-      console.log(":)");
     },
     error: function (response) {
     }
   });
+  $(".central").fadeOut();
+  $(".load").fadeIn();
+  window.setTimeout(function(){
+    $(".loadtext").text("Nearby Drivers Found! Contacting Drivers...");
+    $(".loader").hide();
+    $(".loader-faster").show();
+  }, 5000);
 });
