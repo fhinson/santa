@@ -10,13 +10,28 @@
       = @tag.wish
     #qrcode
 
-- if !current_volunteer
-  %button.notify Request a Driver
-
-  %p#loctext
-- else 
-  %div
-    Here is some info about the gift and a button to check it as delivered
+    - if !current_volunteer
+      .btn.btn-primary.notify{:style => "margin-top:30px"} Request a Driver
+      %p#loctext
+    - else 
+      Here is some info about the gift and a button to check it as delivered
+  
+  .load
+    %h2.loadtext Searching for drivers...
+    .loader
+      .sphere.s-gold
+      .sphere.s-5
+      .sphere.s-4
+      .sphere.s-3
+      .sphere.s-2
+      .sphere.s-1
+    .loader-faster
+      .sphere.s-gold
+      .sphere.s-5
+      .sphere.s-4
+      .sphere.s-3
+      .sphere.s-2
+      .sphere.s-1
 
 = javascript_include_tag("donor")
 = javascript_tag do
