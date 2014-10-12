@@ -1,7 +1,14 @@
-%h1 
-  =@tag.name
-
-#qrcode
+= stylesheet_link_tag("tags")
+.topborder
+.container
+  .central
+    = image_tag("gift.gif", :class => "gift")
+    %h3.recipient
+      = @tag.name + "'s Gift"
+    %h5.wish
+      %span.quoter{:style => (@tag.wish.nil? ? "display:none" : "")} &ldquo;
+      = @tag.wish
+    #qrcode
 
 = javascript_tag do
   id = "#{j @tag.id.to_s}";
