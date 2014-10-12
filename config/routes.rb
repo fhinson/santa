@@ -4,13 +4,17 @@ Rails.application.routes.draw do
 
   devise_for :volunteers
   devise_for :drivers   
+
+  get '/donor' => 'donors#show'
+  get '/driver' => 'drivers#show'
+
   resources :drivers do
-    collection do 
-      get :notify_drivers
+    collection do
+      get :notify
     end
   end
-  
-  
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
