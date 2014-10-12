@@ -38,8 +38,15 @@ $(".notify").click(function() {
     $(".loadtext").text("Nearby Drivers Found! Contacting Drivers...");
     $(".loader").hide();
     $(".loader-faster").show();
+    doSomething();
   }, 5000);
 });
+
+function doSomething(){
+  setTimeout(function(){
+    console.log("hello francis");
+  });
+}
 
 $(".deliver").click(function() {
   $.ajax({
