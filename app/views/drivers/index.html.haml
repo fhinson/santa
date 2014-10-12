@@ -1,21 +1,32 @@
-- if @tags.empty? 
-  There are no presents to be delivered right now. We'll send you a notification when there are!
+.container
+  .header
+    %ul.nav.nav-pills.pull-right
+      %li
+        %a{:href => "/"} Donor
+      %li.active
+        %a{:href => "/drivers"} Driver
+      %li
+        %a{:href => "/tags"} Volunteer
+      %li
+        = link_to('Logout', destroy_driver_session_path, :method => :delete)
+    %h3.text-muted Santa
 
+    - if @tags.empty? 
+      There are no presents to be delivered right now. We'll send you a notification when there are!
 
-  = link_to('Logout', destroy_driver_session_path, :method => :delete)
-- else
-  %div#job
-    %p
-      We've found a job!
-    %p
-      Donor number: 
-      = @tags[0].phone
-    %p 
-      Donor location:  
-      = @tags[0].location
-    .btn.btn-primary{onclick: "accept()"} Accept?
+    - else
+      %div#job
+        %p
+          We've found a job!
+        %p
+          Donor number: 
+          = @tags[0].phone
+        %p 
+          Donor location:  
+          = @tags[0].location
+        .btn.btn-primary{onclick: "accept()"} Accept?
 
-- if !@tags.empty?
-  = javascript_tag do
-    id = "#{j @tags[0].id.to_s}";
-= javascript_include_tag "tag"
+    - if !@tags.empty?
+      = javascript_tag do
+        id = "#{j @tags[0].id.to_s}";
+    = javascript_include_tag "tag"
