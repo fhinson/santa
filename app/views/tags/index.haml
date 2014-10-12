@@ -7,6 +7,8 @@
         %a{:href => "/drivers"} Driver
       %li.active
         %a{:href => "/tags"} Volunteer
+      %li
+        = link_to('Logout', destroy_volunteer_session_path, :method => :delete)
     %h3.text-muted Santa
   %table.table.table-striped.table-hover{:style => "margin-top:40px"}
     %thead
@@ -22,7 +24,3 @@
           %td #{tag.name}
           %td #{tag.wish}
           %td #{tag.status}
-
-%div
-  %a
-    = link_to('Logout', destroy_volunteer_session_path, :method => :delete)
