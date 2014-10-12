@@ -1,4 +1,4 @@
-$('#btn1').on('click', function() {
+$('#donor').on('click', function() {
   /*$.ajax({
     url: '/tags/id_from_code',
     type: 'GET',
