@@ -1,5 +1,7 @@
 .container
   .header
+    %a#lnkDialog{"data-rel" => "dialog", "data-transition" => "pop", :href => "comgooglemaps://?q=Pizza&center=37.759748,-122.427135", :style => "display:none;"}
+
     %ul.nav.nav-pills.pull-right
       %li
         %a{:href => "/"} Donor
@@ -21,9 +23,6 @@
         %p
           Donor number: 
           = @tags[0].phone
-        %p 
-          Donor location:  
-          = @tags[0].location
         .btn.btn-primary{onclick: "accept()"} Accept?
 
     - if !@tags.empty?

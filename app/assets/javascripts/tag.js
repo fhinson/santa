@@ -5,6 +5,7 @@ var accept = function () {
     data: {id: id},
     success: function () {
       $('#job').replaceWith("Accepted");
+      $("#lnkDialog").click(); 
     }
   });
 }
