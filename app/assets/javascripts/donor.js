@@ -38,10 +38,19 @@ $(".notify").click(function() {
     $(".loadtext").text("Nearby Drivers Found! Contacting Drivers...");
     $(".loader").hide();
     $(".loader-faster").show();
+    doSomething();
   }, 5000);
 });
 
-$('#deliver').click(function (){
+function doSomething(){
+  setTimeout(function(){
+    $(".load").fadeOut();
+    $(".central").fadeIn();
+    swal("Driver has accepted ride!");
+  },3000);
+}
+
+$(".deliver").click(function() {
   $.ajax({
     url: '/volunteers/check_delivered',
     data: {id: id},
