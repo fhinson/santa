@@ -40,6 +40,7 @@
 
 = javascript_tag do
   code = "#{j @tag.code.to_s}";
+  id = "#{j @tag.id.to_s}";
 = javascript_include_tag("donor")
 = javascript_include_tag("qrcode.min")
 = javascript_include_tag("qr")
