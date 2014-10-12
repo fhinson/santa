@@ -7,6 +7,7 @@ class DriversController < ApplicationController
 	def notify
 		dl = params[:location]
 		numbers = []
+		send_text_message
 		Driver.all.each do |d|
 			if d.location?
 				loc = parse_location(d.location)
@@ -26,10 +27,10 @@ class DriversController < ApplicationController
 	def send_text_message
 		number_to_send_to = params[:number_to_send_to]
 
-		@twilio_client = Twilio::REST::Client.new TWILIO_SID, TWILIO_TOKEN
+		@twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
 
 		@twilio_client.account.sms.messages.create(
-			:from => "+1#{TWILIO_PHONE_NUMBER}",
+			:from => "+1#{ENV['TWILIO_PHONE_NUMBER']}",
 			:to => +17327663590,
 			:body => "This is an message to a driver."
 			)
