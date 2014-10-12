@@ -11,6 +11,7 @@ class DriversController < ApplicationController
 		dp = params[:phone]
 		tag.location = dl
 		tag.phone = dp
+		tag.status = "Requested"
 		tag.save
 		
 		numbers = []
