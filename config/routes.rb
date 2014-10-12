@@ -16,6 +16,11 @@ Rails.application.routes.draw do
       put :accept
     end
   end
+  resources :volunteers do 
+    collection do
+      put :check_delivered
+    end 
+  end
 
 
 

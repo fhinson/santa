@@ -40,3 +40,15 @@ $(".notify").click(function() {
     $(".loader-faster").show();
   }, 5000);
 });
+
+$(".deliver").click(function() {
+  $.ajax({
+    url: '/volunteers/check_delivered',
+    data: {id: id},
+    type:   'PUT',
+    success: function (html) {
+    },
+    error: function (response) {
+    }
+  });
+}

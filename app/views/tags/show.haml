@@ -19,7 +19,14 @@
             .btn.btn-primary.notify{:style => "width:100%;"} Request a Driver
       %p#loctext{:style => "display:none"}
     - else 
-      Here is some info about the gift and a button to check it as delivered
+      .small-contain{:style => "width:500px; margin:50px auto; display:block"}
+        .row
+          .col-md-6
+            Zone: 
+            = @tag.zone
+     
+          .col-md-6
+            .btn.btn-primary.deliver{:style => "width:100%;"} Check as Delivered
   
   .load
     %h2.loadtext Searching for drivers...
