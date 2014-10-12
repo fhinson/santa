@@ -50,7 +50,7 @@ function doSomething(){
   },3000);
 }
 
-$(".deliver").click(function() {
+$("#deliver").click(function() {
   $.ajax({
     url: '/volunteers/check_delivered',
     data: {id: id},
