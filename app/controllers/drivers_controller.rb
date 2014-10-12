@@ -22,6 +22,8 @@ class DriversController < ApplicationController
 		tag.driver = current_driver
 		tag.save
 
+		send_text_message([tag.phone])
+
 		render nothing: true
 	end
 
@@ -48,12 +50,12 @@ class DriversController < ApplicationController
 			end
 		end
 
-		send_text_message(numbers, dl)
+		send_text_message(numbers)
 
 		render nothing: true
 	end
 
-	def send_text_message(numbers, loc)
+	def send_text_message(numbers)
 		@twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
 
 		for num in numbers

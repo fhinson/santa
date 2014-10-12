@@ -5,7 +5,14 @@
   = link_to('Logout', destroy_driver_session_path, :method => :delete)
 - else
   %div#job
-    We've found a job! 
+    %p
+      We've found a job!
+    %p
+      Donor number: 
+      = @tags[0].phone
+    %p 
+      Donor location:  
+      = @tags[0].location
     .btn.btn-primary{onclick: "accept()"} Accept?
 
 - if !@tags.empty?
