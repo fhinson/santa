@@ -4,7 +4,6 @@ $('#btn1').on('click', function() {
     type: 'GET',
     data: {code: $('#donor_info').val()},
     success: function (data) {
-      console.log(data);
       window.location.replace('http://localhost:3000/tags/' + data);
     }
   });

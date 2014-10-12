@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_for :volunteers
   devise_for :drivers   
 
-  get '/donor' => 'donors#show'
+  resources :donors
   get '/driver' => 'drivers#show'
 
   resources :drivers do
