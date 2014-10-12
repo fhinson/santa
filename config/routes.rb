@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'statics#home'
+
   resources :tags do
     collection do 
       get :id_from_code
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   devise_for :drivers   
 
   resources :donors
-  get '/driver' => 'drivers#show'
 
   resources :drivers do
     collection do

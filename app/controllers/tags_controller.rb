@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   end
 
   def show 
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_code!(params[:id])
   end
 
   def id_from_code

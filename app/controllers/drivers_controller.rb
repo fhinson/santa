@@ -1,5 +1,9 @@
 class DriversController < ApplicationController
 
+	def index
+
+	end
+
 	def notify
 		dl = params[:location]
 		numbers = []
