@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :volunteers
-  devise_for :drivers
   root to: 'statics#home'
   resources :tags
 
+  devise_for :volunteers
+  devise_for :drivers   
   resources :drivers do
     collection do 
       get :notify_drivers
