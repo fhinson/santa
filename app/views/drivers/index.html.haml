@@ -10,6 +10,8 @@
       %li
         = link_to('Logout', destroy_driver_session_path, :method => :delete)
     %h3.text-muted Santa
+
+    %a{:onclick => "parent.location='comgooglemaps://?daddr=37.759748,-100.427135'"} Link
     .centrax
       - if @tags.empty?
         %h2 No Delivery Requests
