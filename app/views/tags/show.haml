@@ -11,9 +11,13 @@
     #qrcode
 
     - if !current_volunteer
-      .btn.btn-primary.notify{:style => "margin-top:30px"} Request a Driver
-      %p#loctext
-      %input#donor_phone{placeholder: "Phone"}
+      .small-contain{:style => "width:500px; margin:50px auto; display:block"}
+        .row
+          .col-md-6
+            %input.form-control#donor_phone{placeholder: "Your Phone Number"}
+          .col-md-6
+            .btn.btn-primary.notify{:style => "width:100%;"} Request a Driver
+      %p#loctext{:style => "display:none"}
     - else 
       Here is some info about the gift and a button to check it as delivered
   
