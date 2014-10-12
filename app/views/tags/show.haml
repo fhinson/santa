@@ -1,11 +1,5 @@
 %head
   %script{:src => "//js.pusher.com/2.2/pusher.min.js", :type => "text/javascript"}
-  :javascript
-    var pusher = new Pusher('536126ac399072282dd5');
-    var channel = pusher.subscribe('volunteer_channel');
-    channel.bind('deliver', function(data) {
-      alert(data.message);
-    });
 
 = stylesheet_link_tag("tags")
 .topborder
@@ -58,3 +52,4 @@
 = javascript_include_tag("donor")
 = javascript_include_tag("qrcode.min")
 = javascript_include_tag("qr")
+= javascript_include_tag("pusher")

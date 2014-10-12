@@ -44,3 +44,5 @@ gem 'spring',        group: :development
 
 #Twilio
 gem 'twilio-ruby'
+
+gem 'pusher'

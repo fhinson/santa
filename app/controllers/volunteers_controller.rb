@@ -5,6 +5,10 @@ class VolunteersController < ApplicationController
     @tag.zone = 023
     @tag.save
 
+    Pusher['volunteer_channel'].trigger('deliver', {
+      message: 'Present delivered!'
+    })
+
     render nothing: true
   end
 
