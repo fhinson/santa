@@ -17,3 +17,5 @@
 
 # ds store
 .DS_Store
+
+/app/controllers/drivers_controller.rb
