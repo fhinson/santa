@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :volunteers do 
     collection do
       put :check_delivered
+      put :check_undelivered
     end 
   end
 

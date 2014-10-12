@@ -7,4 +7,12 @@ class VolunteersController < ApplicationController
 
     render nothing: true
   end
+
+  def check_undelivered
+    @tag = Tag.find(params[:id])
+    @tag.status = "Not Delivered"
+    @tag.save
+
+    render nothing: true
+  end
 end
