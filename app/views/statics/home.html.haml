@@ -1,13 +1,25 @@
-%a{:id => "donor", :href => "#", :title => "Donor" }
-  %strong Donor
+.container
+  .header
+    %ul.nav.nav-pills.pull-right
+      %li
+        %a{id: 'donor', :href => "#"} Donor
+      %li
+        %a{:href => "/drivers"} Driver
+      %li
+        %a{:href => "/tags"} Volunteer
+    %h3.text-muted Santa
+  .jumbotron{:style => "margin-top:60px"}
+    .row
+      .col-md-5
+        = image_tag("santacrew.png", :style => "width:100%")
+      .col-md-7
+        %h1 Let kids believe
+        %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    .row{:style => "margin-top:50px"}
+      .col-md-8
+        %input#donor_info.form-control{:style => "background-image: none; background-position: 0% 0%; background-repeat: repeat;", :type => "text", :placeholder => "Enter Gift Code", :style => "height:64px"}/
+      .col-md-4
+        %p
+          %a#donor.btn.btn-lg.btn-success{:role => "button"} Submit Gift Code
 
-%a{:id => "driver", :href => "/drivers", :title => "Driver" }
-  %strong Driver
-
-%a{:id => "volunteer", :href => "/volunteers", :title => "Volunteer" }
-  %strong Volunteer
-
-
-%input#donor_info{:placeholder => "Donor Enter Code. To be placed in modal that pops up when donor clicks 'Donor'"}
-
-= javascript_include_tag("home")
+= javascript_include_tag "home"

@@ -1,0 +1,28 @@
+.container
+  .header
+    %ul.nav.nav-pills.pull-right
+      %li
+        %a{id: 'donor', :href => "#"} Donor
+      %li
+        %a{:href => "/drivers"} Driver
+      %li.active
+        %a{:href => "/tags"} Volunteer
+    %h3.text-muted Santa
+  %table.table.table-striped.table-hover{:style => "margin-top:40px"}
+    %thead
+      %tr
+        %th Code
+        %th Name
+        %th Wish
+        %th Status
+    %tbody
+      - @tags.each do |tag|
+        %tr
+          %td #{tag.id}
+          %td #{tag.name}
+          %td #{tag.wish}
+          %td #{tag.status}
+
+%div
+  %a
+    = link_to('Logout', destroy_volunteer_session_path, :method => :delete)
