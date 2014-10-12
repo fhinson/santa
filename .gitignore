@@ -18,4 +18,4 @@
 # ds store
 .DS_Store
 
-/app/controllers/drivers_controller.rb
+/config/initializers/twilio.rb
