@@ -22,7 +22,9 @@ class DriversController < ApplicationController
 		tag.driver = current_driver
 		tag.save
 
-		send_text_message([tag.phone])
+		message = "Your request has been accepted. " + current_driver.name.to_s + " is on the way!"
+
+		send_text_message([tag.phone], message)
 
 		render nothing: true
 	end
@@ -50,19 +52,21 @@ class DriversController < ApplicationController
 			end
 		end
 
-		send_text_message(numbers)
+		message = "Hello - a present delivery has been requested. Please click the following link to view the request: " + drivers_url
+
+		send_text_message(numbers, message)
 
 		render nothing: true
 	end
 
-	def send_text_message(numbers)
+	def send_text_message(numbers, message)
 		@twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
 
 		for num in numbers
 			@twilio_client.account.sms.messages.create(
 				:from => "+1#{ENV['TWILIO_PHONE_NUMBER']}",
 				:to => "+1" + num,
-				:body => "Hello - a present delivery has been requested. Please click the following link to view the request: " + drivers_url
+				:body => message
 			)
 		end
 	end
