@@ -47,7 +47,7 @@ function doSomething(){
     $(".load").fadeOut();
     $(".central").fadeIn();
     swal("Driver has accepted ride!");
-  },3000);
+  },15000);
 }
 
 $("#deliver").click(function() {
