@@ -1,5 +1,5 @@
 var accept = function () {
-  $("#lnkDialog").click(); 
+  $.mobile.changePage('#dialog', 'pop', true, true); 
   $.ajax({
     url: 'drivers/accept',
     type: 'PUT',
