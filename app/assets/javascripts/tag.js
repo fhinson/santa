@@ -1,5 +1,4 @@
 var accept = function () {
-  $("#dialog").popup('open');
   $.ajax({
     url: 'drivers/accept',
     type: 'PUT',

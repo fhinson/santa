@@ -16,8 +16,10 @@
       - else
         %h2 We've found a job!
         %p Donor number: #{@tags[0].phone}
-        %p Donor location: #{@tags[0].location}
-        .btn.btn-primary{onclick: "accept()"} Accept?
+        .btn.btn-primary{onclick: "accept()"} Accept? 
+        %br
+        %br
+        %br
       = image_tag("box.svg", :style => "width:150px")
         
     - if !@tags.empty?
