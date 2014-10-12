@@ -1,3 +1,12 @@
+%head
+  %script{:src => "//js.pusher.com/2.2/pusher.min.js", :type => "text/javascript"}
+  :javascript
+    var pusher = new Pusher('536126ac399072282dd5');
+    var channel = pusher.subscribe('volunteer_channel');
+    channel.bind('deliver', function(data) {
+      alert(data.message);
+    });
+
 = stylesheet_link_tag("tags")
 .topborder
 .container
@@ -26,7 +35,7 @@
             = @tag.zone
      
           .col-md-6
-            .btn.btn-primary.deliver{:style => "width:100%;"} Check as Delivered
+            .btn.btn-primary#deliver{:style => "width:100%;"} Check as Delivered
   
   .load
     %h2.loadtext Searching for drivers...

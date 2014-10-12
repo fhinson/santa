@@ -41,7 +41,7 @@ $(".notify").click(function() {
   }, 5000);
 });
 
-$(".deliver").click(function() {
+$('#deliver').click(function (){
   $.ajax({
     url: '/volunteers/check_delivered',
     data: {id: id},
@@ -51,4 +51,4 @@ $(".deliver").click(function() {
     error: function (response) {
     }
   });
-}
+});
