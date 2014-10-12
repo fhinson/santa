@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'statics#home'
-  resources :tags
+  resources :tags do
+    collection do 
+      get :id_from_code
+    end
+  end
 
   devise_for :volunteers
   devise_for :drivers   

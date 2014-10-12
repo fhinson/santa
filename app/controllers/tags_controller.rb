@@ -7,6 +7,10 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
   end
 
+  def id_from_code
+    render json: Tag.find_by_code(params[:code]).id
+  end
+
   private
 
   def tag_params
