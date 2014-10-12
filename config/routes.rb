@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
   devise_for :volunteers
   devise_for :drivers
-
   resources :drivers do
     collection do
       get :notify
-      get :send_text_message
+      get :send_text_message   
+      put :accept
     end
   end
 

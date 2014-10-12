@@ -2,11 +2,40 @@ class DriversController < ApplicationController
   before_action :authenticate_driver!, only: :index
 
 	def index
+		if current_driver
+			@tags = Array.new
+			Tag.find_each do |t|
+				if t.status == "Requested"
+					l1 = parse_location(t.location)
+					l2 = parse_location(current_driver.location)
+					if haversine_distance(l1[0], l1[1], l2[0], l2[1]) < 5
+						@tags << t
+					end
+				end
+			end	
+		end
+	end
 
+	def accept
+		tag = Tag.find(params[:id])
+		tag.status = "Accepted"
+		tag.driver = current_driver
+		tag.save
+
+		send_text_message([tag.phone])
+
+		render nothing: true
 	end
 
 	def notify
+		tag = Tag.find(params[:id])
 		dl = params[:location]
+		dp = params[:phone]
+		tag.location = dl
+		tag.phone = dp
+		tag.status = "Requested"
+		tag.save
+		
 		numbers = []
 		#send_text_message
 		Driver.all.each do |d|
@@ -21,12 +50,12 @@ class DriversController < ApplicationController
 			end
 		end
 
-		send_text_message(numbers, dl)
+		send_text_message(numbers)
 
 		render nothing: true
 	end
 
-	def send_text_message(numbers, loc)
+	def send_text_message(numbers)
 		@twilio_client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
 
 		for num in numbers

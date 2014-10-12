@@ -13,6 +13,7 @@
     - if !current_volunteer
       .btn.btn-primary.notify{:style => "margin-top:30px"} Request a Driver
       %p#loctext
+      %input#donor_phone{placeholder: "Phone"}
     - else 
       Here is some info about the gift and a button to check it as delivered
   
@@ -33,8 +34,8 @@
       .sphere.s-2
       .sphere.s-1
 
-= javascript_include_tag("donor")
 = javascript_tag do
   id = "#{j @tag.id.to_s}";
+= javascript_include_tag("donor")
 = javascript_include_tag("qrcode.min")
 = javascript_include_tag("qr")
