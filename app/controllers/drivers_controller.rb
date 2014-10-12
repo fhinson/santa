@@ -15,21 +15,23 @@ class DriversController < ApplicationController
 				if (miles < 5)
 					numbers << d.phone
 					puts d.phone
+					send_text_message
 				end
 			end
 		end
 
 		render nothing: true
 	end
+
 	def send_text_message
 		number_to_send_to = params[:number_to_send_to]
 
-		@twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+		@twilio_client = Twilio::REST::Client.new TWILIO_SID, TWILIO_TOKEN
 
 		@twilio_client.account.sms.messages.create(
-			:from => "+1#{twilio_phone_number}",
-			:to => number_to_send_to,
-			:body => "This is an message. It gets sent to #{number_to_send_to}"
+			:from => "+1#{TWILIO_PHONE_NUMBER}",
+			:to => +17327663590,
+			:body => "This is an message to a driver."
 			)
 	end
 
