@@ -7,5 +7,5 @@ $('#donor').on('click', function() {
       window.location.replace('http://localhost:3000/tags/' + data);
     }
   });*/
-  window.location.replace('http://localhost:3000/tags/' + $('#donor_info').val());
+  window.location.replace(url + $('#donor_info').val());
 });

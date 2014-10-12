@@ -22,4 +22,10 @@
         %p
           %a#donor.btn.btn-lg.btn-success{:role => "button"} Submit Gift Code
 
+- if Rails.env.production?
+  = javascript_tag do
+    url = "#{j "http://santa-giving-tree.herokuapp.com/tags/"}";
+- else
+  = javascript_tag do
+    url = "#{j "http://localhost:3000/tags/"}";
 = javascript_include_tag "home"
