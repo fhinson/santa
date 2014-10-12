@@ -15,6 +15,18 @@ class DriversController < ApplicationController
 
 		render nothing: true
 	end
+	def send_text_message
+		number_to_send_to = params[:number_to_send_to]
+
+
+		@twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+
+		@twilio_client.account.sms.messages.create(
+			:from => "+1#{twilio_phone_number}",
+			:to => number_to_send_to,
+			:body => "This is an message. It gets sent to #{number_to_send_to}"
+			)
+	end
 
 	def parse_location(st)
 		arr = []
@@ -27,7 +39,7 @@ class DriversController < ApplicationController
 	def haversine_distance( lat1, lon1, lat2, lon2 )
 		max_distance_away_in_km = 100.0
 		rad_per_deg             = 0.017453293
-		
+
 		rmiles  = 3956           # radius of the great circle in miles
 		rkm     = 6371           # radius in kilometers, some algorithms use 6367
 		rfeet   = rmiles * 5282  # radius in feet
