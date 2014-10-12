@@ -44,8 +44,10 @@ $(".notify").click(function() {
 
 function doSomething(){
   setTimeout(function(){
-    console.log("hello francis");
-  });
+    $(".load").fadeOut();
+    $(".central").fadeIn();
+    swal("Driver has accepted ride!");
+  },3000);
 }
 
 $(".deliver").click(function() {
@@ -58,4 +60,4 @@ $(".deliver").click(function() {
     error: function (response) {
     }
   });
-}
+});

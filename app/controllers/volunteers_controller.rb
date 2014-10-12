@@ -4,5 +4,7 @@ class VolunteersController < ApplicationController
     @tag.status = "Delivered"
     @tag.zone = 023
     @tag.save
+
+    render nothing: true
   end
 end
