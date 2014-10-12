@@ -52,3 +52,15 @@ $('#deliver').click(function (){
     }
   });
 });
+
+$('#undeliver').click(function (){
+  $.ajax({
+    url: '/volunteers/check_undelivered',
+    data: {id: id},
+    type:   'PUT',
+    success: function (html) {
+    },
+    error: function (response) {
+    }
+  });
+});

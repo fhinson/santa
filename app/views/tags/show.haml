@@ -30,7 +30,10 @@
     - else 
       .small-contain{:style => "width:500px; margin:50px auto; display:block; text-align:center"}
         %p Zone: #{@tag.zone}
-        .btn.btn-primary.deliver{:style => "width:80%;"} Check as Delivered
+        - if @tag.status != "Delivered"
+          .btn.btn-primary#deliver{:style => "width:80%;"} Check as Delivered
+        - else 
+          .btn.btn-primary#undeliver{:style => "width:80%;"} Check as Not Delivered
   
   .load
     %h2.loadtext Searching for drivers...
