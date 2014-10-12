@@ -2,17 +2,18 @@ Rails.application.routes.draw do
   root to: 'statics#home'
 
   resources :tags do
-    collection do 
+    collection do
       get :id_from_code
     end
   end
 
   devise_for :volunteers
-  devise_for :drivers   
+  devise_for :drivers
 
   resources :drivers do
     collection do
       get :notify
+      get :send_text_message
     end
   end
 
