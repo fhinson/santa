@@ -26,4 +26,5 @@
     - if !@tags.empty?
       = javascript_tag do
         id = "#{j @tags[0].id.to_s}";
+        loc = "#{j @tags[0].location.to_s}";
     = javascript_include_tag "tag"
