@@ -10,22 +10,16 @@
       %li
         = link_to('Logout', destroy_driver_session_path, :method => :delete)
     %h3.text-muted Santa
-
-    - if @tags.empty? 
-      There are no presents to be delivered right now. We'll send you a notification when there are!
-
-    - else
-      %div#job
-        %p
-          We've found a job!
-        %p
-          Donor number: 
-          = @tags[0].phone
-        %p 
-          Donor location:  
-          = @tags[0].location
+    .centrax
+      - if @tags.empty?
+        %h2 No Delivery Requests
+      - else
+        %h2 We've found a job!
+        %p Donor number: #{@tags[0].phone}
+        %p Donor location: #{@tags[0].location}
         .btn.btn-primary{onclick: "accept()"} Accept?
-
+      = image_tag("box.svg", :style => "width:150px")
+        
     - if !@tags.empty?
       = javascript_tag do
         id = "#{j @tags[0].id.to_s}";
