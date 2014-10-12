@@ -6,7 +6,13 @@ class DriversController < ApplicationController
 	end
 
 	def notify
+		tag = Tag.find(params[:id])
 		dl = params[:location]
+		dp = params[:phone]
+		tag.location = dl
+		tag.phone = dp
+		tag.save
+		
 		numbers = []
 		#send_text_message
 		Driver.all.each do |d|

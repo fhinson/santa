@@ -25,7 +25,7 @@ function locErr(err){
 $(".notify").click(function() {
   $.ajax({
     url: '/drivers/notify',
-    data: {'location': ($("#loctext").text())},
+    data: {location: ($("#loctext").text()), phone: $('#donor_phone').val(), id: id},
     type:   'GET',
     success: function (html) {
       console.log(":)");
